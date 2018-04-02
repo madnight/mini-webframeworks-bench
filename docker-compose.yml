@@ -1,0 +1,48 @@
+version: '3'
+services:
+
+  bench:
+    image: williamyeh/wrk:4.0.2
+    entrypoint: >
+        sh -c "wrk -t12 -c400 -d5s http://flask:5000
+        && wrk -t12 -c400 -d5s http://gunicorn:8080
+        && wrk -t12 -c400 -d5s http://express:8080
+        && wrk -t12 -c400 -d5s http://spring-boot:8080/hello/world
+        && wrk -t12 -c400 -d5s http://koa:8080"
+    depends_on:
+      - flask
+      - express
+      - gunicorn
+      - spring-boot
+      - koa
+    links:
+      - flask
+      - express
+      - gunicorn
+      - spring-boot
+      - koa
+
+  flask:
+    image: "tullyrankin/flask-hello-world"
+    logging:
+      driver: "none"
+
+  gunicorn:
+    image: "macinv/gunicorn-example"
+    logging:
+      driver: "none"
+
+  express:
+    image: "kornkitti/express-hello-world"
+    logging:
+      driver: "none"
+
+  spring-boot:
+    image: "saturnism/spring-boot-helloworld-service"
+    logging:
+      driver: "none"
+
+  koa:
+    image: "mbukosky/koa-hello"
+    logging:
+      driver: "none"
