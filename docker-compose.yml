@@ -8,6 +8,7 @@ services:
         && wrk -t12 -c400 -d5s http://gunicorn:8080
         && wrk -t12 -c400 -d5s http://express:8080
         && wrk -t12 -c400 -d5s http://spring-boot:8080/hello/world
+        && wrk -t12 -c400 -d5s http://lumen
         && wrk -t12 -c400 -d5s http://koa:8080"
     depends_on:
       - flask
@@ -15,12 +16,14 @@ services:
       - gunicorn
       - spring-boot
       - koa
+      - lumen
     links:
       - flask
       - express
       - gunicorn
       - spring-boot
       - koa
+      - lumen
 
   flask:
     image: "tullyrankin/flask-hello-world"
@@ -41,6 +44,18 @@ services:
     image: "saturnism/spring-boot-helloworld-service"
     logging:
       driver: "none"
+
+  lumen:
+    image: "tonypai/docker-lumen"
+    logging:
+      driver: "none"
+
+  # rails:
+  #   image: "sqmk/dind-docker-compose"
+  #   entrypoint: sh -c "apk update && apk add git && git clone https://github.com/mookjp/rails-docker-example.git && cd rails-docker-example && docker-compose up"
+  #     - "80:80"
+  #   volumes:
+  #       - /var/run/docker.sock:/var/run/docker.sock
 
   koa:
     image: "mbukosky/koa-hello"

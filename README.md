@@ -42,6 +42,15 @@ bench_1        |   1165 requests in 5.03s, 299.21KB read
 bench_1        |   Socket errors: connect 0, read 0, write 0, timeout 19
 bench_1        | Requests/sec:    231.76
 bench_1        | Transfer/sec:     59.52KB
+bench_1        | Running 5s test @ http://lumen
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency   407.78ms  139.31ms   1.33s    86.71%
+bench_1        |     Req/Sec    49.02     54.70   250.00     85.94%
+bench_1        |   1699 requests in 5.10s, 441.34KB read
+bench_1        |   Socket errors: connect 0, read 0, write 0, timeout 13
+bench_1        | Requests/sec:    333.40
+bench_1        | Transfer/sec:     86.61KB
 bench_1        | Running 5s test @ http://koa:8080
 bench_1        |   12 threads and 400 connections
 bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -58,4 +67,5 @@ bench_1        | Transfer/sec:    793.06KB
 | **express/node**      | **7389.01** |
 | gunicorn/python | 2310.92 |
 | spring-boot/java | 231.76 |
+| lumen/php | 333.40 |
 | koa/node | 5342.72 |
