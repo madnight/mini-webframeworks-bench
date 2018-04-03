@@ -77,6 +77,14 @@ bench_1        |   2183 requests in 5.02s, 426.37KB read
 bench_1        |   Socket errors: connect 0, read 2183, write 0, timeout 0
 bench_1        | Requests/sec:    434.94
 bench_1        | Transfer/sec:     84.95KB
+bench_1        | Running 5s test @ http://servant:8081
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency    28.00ms   83.96ms   1.01s    96.11%
+bench_1        |     Req/Sec     2.26k     0.94k   14.09k    81.76%
+bench_1        |   131032 requests in 5.09s, 21.37MB read
+bench_1        | Requests/sec:  25719.58
+bench_1        | Transfer/sec:      4.19MB
 bench_1        | Running 5s test @ http://koa:8080
 bench_1        |   12 threads and 400 connections
 bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -90,6 +98,7 @@ bench_1        | Transfer/sec:    793.06KB
 | Framwork/Lang        | Requests/sec  |
 | ------------- | -----:|
 | scotty/haskell | 52004 |
+| servant/haskell | 25719 |
 | express/node      | 7389 |
 | koa/node | 5343 |
 | gunicorn/python | 2311 |

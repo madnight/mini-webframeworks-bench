@@ -11,6 +11,7 @@ services:
         && wrk -t12 -c400 -d5s http://lumen
         && wrk -t12 -c400 -d5s http://sinatra:5000
         && wrk -t12 -c400 -d5s http://scotty:3000
+        && wrk -t12 -c400 -d5s http://servant:8081
         && wrk -t12 -c400 -d5s http://silex/hello/world
         && wrk -t12 -c400 -d5s http://koa:8080"
     depends_on:
@@ -23,6 +24,7 @@ services:
       - sinatra
       - scotty
       - silex
+      - servant
     links:
       - flask
       - express
@@ -33,6 +35,7 @@ services:
       - sinatra
       - scotty
       - silex
+      - servant
 
   flask:
     image: "tullyrankin/flask-hello-world"
@@ -66,6 +69,11 @@ services:
 
   scotty:
     image: "grdvnl/helloscotty"
+    logging:
+      driver: "none"
+
+  servant:
+    image: "fosskers/servant-docker:1.0"
     logging:
       driver: "none"
 
