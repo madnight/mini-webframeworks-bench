@@ -85,6 +85,14 @@ bench_1        |     Req/Sec     2.26k     0.94k   14.09k    81.76%
 bench_1        |   131032 requests in 5.09s, 21.37MB read
 bench_1        | Requests/sec:  25719.58
 bench_1        | Transfer/sec:      4.19MB
+bench_1        | Running 5s test @ http://revel:9000
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency    27.52ms   25.56ms 234.98ms   69.29%
+bench_1        |     Req/Sec     1.37k   544.12    13.59k    97.84%
+bench_1        |   81851 requests in 5.09s, 185.86MB read
+bench_1        | Requests/sec:  16072.50
+bench_1        | Transfer/sec:     36.50MB
 bench_1        | Running 5s test @ http://koa:8080
 bench_1        |   12 threads and 400 connections
 bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -99,6 +107,7 @@ bench_1        | Transfer/sec:    793.06KB
 | ------------- | -----:|
 | scotty/haskell | 52004 |
 | servant/haskell | 25719 |
+| revel/go | 16073 |
 | express/node      | 7389 |
 | koa/node | 5343 |
 | gunicorn/python | 2311 |
