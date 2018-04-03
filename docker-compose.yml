@@ -9,6 +9,9 @@ services:
         && wrk -t12 -c400 -d5s http://express:8080
         && wrk -t12 -c400 -d5s http://spring-boot:8080/hello/world
         && wrk -t12 -c400 -d5s http://lumen
+        && wrk -t12 -c400 -d5s http://sinatra:5000
+        && wrk -t12 -c400 -d5s http://scotty:3000
+        && wrk -t12 -c400 -d5s http://silex/hello/world
         && wrk -t12 -c400 -d5s http://koa:8080"
     depends_on:
       - flask
@@ -17,6 +20,9 @@ services:
       - spring-boot
       - koa
       - lumen
+      - sinatra
+      - scotty
+      - silex
     links:
       - flask
       - express
@@ -24,6 +30,9 @@ services:
       - spring-boot
       - koa
       - lumen
+      - sinatra
+      - scotty
+      - silex
 
   flask:
     image: "tullyrankin/flask-hello-world"
@@ -50,8 +59,23 @@ services:
     logging:
       driver: "none"
 
+  sinatra:
+    image: "luisbebop/docker-sinatra-hello-world"
+    logging:
+      driver: "none"
+
+  scotty:
+    image: "grdvnl/helloscotty"
+    logging:
+      driver: "none"
+
+  silex:
+    image: "sskorc/silex"
+    logging:
+      driver: "none"
+
   # rails:
-  #   image: "sqmk/dind-docker-compose"
+  # image: "sqmk/dind-docker-compose"
   #   entrypoint: sh -c "apk update && apk add git && git clone https://github.com/mookjp/rails-docker-example.git && cd rails-docker-example && docker-compose up"
   #     - "80:80"
   #   volumes:

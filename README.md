@@ -51,6 +51,32 @@ bench_1        |   1699 requests in 5.10s, 441.34KB read
 bench_1        |   Socket errors: connect 0, read 0, write 0, timeout 13
 bench_1        | Requests/sec:    333.40
 bench_1        | Transfer/sec:     86.61KB
+bench_1        | Running 5s test @ http://sinatra:5000
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency   221.26ms  167.00ms   1.99s    95.99%
+bench_1        |     Req/Sec    52.44     42.25   220.00     58.88%
+bench_1        |   1748 requests in 5.07s, 526.76KB read
+bench_1        |   Socket errors: connect 0, read 0, write 0, timeout 4
+bench_1        | Requests/sec:    344.53
+bench_1        | Transfer/sec:    103.82KB
+bench_1        | Running 5s test @ http://scotty:3000
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency    12.31ms   33.12ms 530.94ms   96.90%
+bench_1        |     Req/Sec     4.63k     1.63k    9.69k    71.60%
+bench_1        |   265090 requests in 5.10s, 45.76MB read
+bench_1        | Requests/sec:  52004.88
+bench_1        | Transfer/sec:      8.98MB
+bench_1        | Running 5s test @ http://silex/hello/world
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency   179.38ms  158.99ms   1.83s    82.82%
+bench_1        |     Req/Sec    44.26     31.76   250.00     77.61%
+bench_1        |   2183 requests in 5.02s, 426.37KB read
+bench_1        |   Socket errors: connect 0, read 2183, write 0, timeout 0
+bench_1        | Requests/sec:    434.94
+bench_1        | Transfer/sec:     84.95KB
 bench_1        | Running 5s test @ http://koa:8080
 bench_1        |   12 threads and 400 connections
 bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -63,9 +89,12 @@ bench_1        | Transfer/sec:    793.06KB
 
 | Framwork/Lang        | Requests/sec  |
 | ------------- | -----:|
-| flask/python      | 759.50 |
-| **express/node**      | **7389.01** |
-| gunicorn/python | 2310.92 |
-| spring-boot/java | 231.76 |
-| lumen/php | 333.40 |
-| koa/node | 5342.72 |
+| scotty/haskell | 52004 |
+| express/node      | 7389 |
+| koa/node | 5343 |
+| gunicorn/python | 2311 |
+| flask/python      | 759 |
+| silex/php | 435 |
+| sinatra/ruby | 344 |
+| lumen/php | 333 |
+| spring-boot/java | 232 |
