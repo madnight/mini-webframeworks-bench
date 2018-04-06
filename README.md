@@ -101,6 +101,14 @@ bench_1        |     Req/Sec     1.78k   567.43     3.13k    65.50%
 bench_1        |   107012 requests in 5.07s, 28.89MB read
 bench_1        | Requests/sec:  21099.42
 bench_1        | Transfer/sec:      5.70MB
+bench_1        | Running 5s test @ http://rails:3000
+bench_1        |   12 threads and 400 connections
+bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
+bench_1        |     Latency   740.40ms  109.34ms   1.23s    85.10%
+bench_1        |     Req/Sec    24.09     15.77    90.00     66.96%
+bench_1        |   624 requests in 5.03s, 9.16MB read
+bench_1        | Requests/sec:    123.98
+bench_1        | Transfer/sec:      1.82MB
 bench_1        | Running 5s test @ http://koa:8080
 bench_1        |   12 threads and 400 connections
 bench_1        |   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -125,3 +133,4 @@ bench_1        | Transfer/sec:    793.06KB
 | sinatra/ruby | 344 |
 | lumen/php | 333 |
 | spring-boot/java | 232 |
+| rails/ruby | 124 |

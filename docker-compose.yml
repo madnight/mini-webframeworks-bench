@@ -14,6 +14,7 @@ services:
         && wrk -t12 -c400 -d5s http://servant:8081
         && wrk -t12 -c400 -d5s http://revel:9000
         && wrk -t12 -c400 -d5s http://gotham:7878
+        && wrk -t12 -c400 -d5s http://rails:3000
         && wrk -t12 -c400 -d5s http://silex/hello/world
         && wrk -t12 -c400 -d5s http://koa:8080"
     depends_on:
@@ -28,6 +29,7 @@ services:
       - silex
       - servant
       - revel
+      - rails
     links:
       - flask
       - express
@@ -40,6 +42,7 @@ services:
       - silex
       - servant
       - revel
+      - rails
 
   flask:
     image: "tullyrankin/flask-hello-world"
@@ -96,12 +99,19 @@ services:
     logging:
       driver: "none"
 
+  rails:
+    image: "k2nr/rails-docker-sample"
+    logging:
+      driver: "none"
+
   # rails:
-  # image: "sqmk/dind-docker-compose"
-  #   entrypoint: sh -c "apk update && apk add git && git clone https://github.com/mookjp/rails-docker-example.git && cd rails-docker-example && docker-compose up"
-  #     - "80:80"
+  #   image: "sqmk/dind-docker-compose"
+  #   entrypoint: sh -c "apk update && apk add curl && curl -LO https://raw.githubusercontent.com/bitnami/bitnami-docker-rails/master/docker-compose.yml && docker-compose up"
+  #   ports:
+  #     - "3005:3000"
+  #   privileged: true
   #   volumes:
-  #       - /var/run/docker.sock:/var/run/docker.sock
+  #     - /var/run/docker.sock:/var/run/docker.sock
 
   koa:
     image: "mbukosky/koa-hello"
